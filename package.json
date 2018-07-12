@@ -1,0 +1,11 @@
+{
+  "name": "messenger-codepen-zip",
+  "version": "1.0.0",
+  "description": "A messenger app by Mike Weaver off codepen",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cindy Lay",
+  "license": "ISC"
+}

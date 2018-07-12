@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+$blue: #1289fe;
+$gray: #e5e5ea;
+
+$hero-shadow: 1px 1px 0px $gray, 
+  2px 2px 0px $gray, 
+  3px 3px 0px $gray;
+
+#vue {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+
+  .hero {
+    margin: 0.5em auto 0.25em;
+    font-size: 3em;
+    color: $blue;
+    text-shadow: $hero-shadow;
+  }
+
+  .name {
+    margin: 0;
+  }
+
+  .original {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+
+  input {
+    appearance: none;
+    padding: 0.5em;
+    vertical-align: middle;
+    border: 1px solid $gray;
+    border-radius: 2px;
+    font-size: 1em;
+
+    &.nameInput {
+      width: calc(100% - 10em);
+    }
+
+    &.messageInput {
+      width: calc(100% - 4em);
+      padding-right: 2em;
+    }
+  }
+
+  button {
+    appearance: none;
+    padding: 0.5em;
+    vertical-align: middle;
+    border: none;
+    background: none;
+    color: $blue;
+    font-weight: 400;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.25s ease-out;
+
+    &:hover {
+      color: darken($blue, 15%);
+    }
+  }
+
+  .messagesWrapper {
+    padding: 0.5em;
+    max-height: 500px;
+    overflow-y: scroll;
+
+    .message {
+      margin: 2em auto;
+      padding: 0 1em;
+      padding-right: 2em;
+      background: $gray;
+      border-radius: 1em;
+      position: relative;
+      text-align: left;
+      //width: 100%;
+
+      span, p {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      span {
+        position: absolute;
+        top: -1.25em;
+        left: 0.75em;
+        right: auto;
+        font-size: 0.85em;
+        color: darken($gray, 15%);
+        white-space: nowrap;
+        vertical-align: top;
+
+        time {
+          display: none;
+          vertical-align: top;
+        }
+      }
+
+      &:hover {
+        span {
+          time {
+            display: inline;
+          }
+        }
+      }
+
+      p {
+        width: auto;
+      }
+
+      i {
+        display: none;
+        font-size: 1em;
+        vertical-align: middle;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0.5em;
+      }
+
+      &[data-person="Me"] {
+        background: $blue;
+        color: white;
+
+        &:after {
+          content: "";
+          position: absolute;
+          right: -0.5em;
+          bottom: 0;
+          width: 0.5em;
+          height: 1em;
+          border-left: 0.5em solid $blue;
+          border-bottom-left-radius: 1em 0.5em;
+        }
+
+        span {
+          right: 0.75em;
+          left: auto;
+          color: $blue;
+        }
+
+        i {
+          display: inline-block;
+        }
+      }
+
+      &:not([data-person="Me"]) {
+        &:after {
+          content: "";
+          position: absolute;
+          left: -0.5em;
+          bottom: 0;
+          width: 0.5em;
+          height: 1em;
+          border-right: 0.5em solid $gray;
+          border-bottom-right-radius: 1em 0.5em;
+        }
+      }
+
+      i {
+        padding: 0.25em;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .usersTyping {
+    text-align: left;
+    font-size: 0.85em;
+    margin: 0 auto;
+    color: darken($gray, 15%);
+  }
+
+  .usersOnline {
+    text-decoration: underline;
+    margin-bottom: 0.25em;
+  }
+
+  .users {
+    margin: 0 auto;
+  }
+
+  .addMessage {
+    margin: 1em auto;
+    text-align: left;
+  }
+}
